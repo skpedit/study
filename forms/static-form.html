@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Application Form</title>
+</head>
+<body>
+    <h1>Loan Application Form</h1>
+    <form id="loanForm">
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="text" id="loanAmount" name="loanAmount" required><br><br>
+        
+        <label for="loanDuration">Loan Duration (in years):</label>
+        <input type="number" id="loanDuration" name="loanDuration" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+    <script>
+        document.getElementById("loanForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var loanAmount = document.getElementById("loanAmount").value;
+            var loanDuration = document.getElementById("loanDuration").value;
+            
+            // Handle form data here (send it to a backend or log it)
+            console.log({ loanAmount, loanDuration });
+        });
+    </script>
+</body>
+</html>
