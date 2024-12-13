@@ -14,7 +14,17 @@
         
         <input type="submit" value="Submit">
     </form>
-    
+     <script>
+    // Load process instance ID and task ID dynamically
+    window.addEventListener('message', function (event) {
+      const { task } = event.data;
+      console.log("kumar", task);
+      if (task) {
+        // Populate form fields with task.id and processInstanceId
+        console.log("sraban", task);
+      }
+    });
+  </script>
     <script>
         document.getElementById("loanForm").addEventListener("submit", function(event) {
             event.preventDefault();
