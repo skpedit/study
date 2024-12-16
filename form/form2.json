@@ -1,0 +1,80 @@
+{
+   "type":"default",
+   "id":"Form_Kumar",
+   "components":[
+      {
+         "label":"Full Name",
+         "type":"textfield",
+         "layout":{
+            "row":"Row_014zt4x",
+            "columns":12
+         },
+         "key":"fullName"
+      },
+      {
+         "label":"Gender",
+         "type":"radio",
+         "values":[
+            {
+               "label":"Male",
+               "value":"male"
+            },
+            {
+               "label":"Female",
+               "value":"female"
+            }
+         ],
+         "key":"gender",
+         "layout":{
+            "row":"Row_014zt4x",
+            "columns":12
+         }
+      },
+      {
+         "label":"Resume",
+         "type":"filepicker",
+         "layout":{
+            "row":"Row_014zt4x",
+            "columns":12
+         },
+         "key":"resume"
+      },
+      {
+         "label":"Skills",
+         "type":"checklist",
+         "layout":{
+            "row":"Row_014zt4x",
+            "columns":12
+         },
+         "values":[
+            {
+               "label":"Java",
+               "value":"java"
+            },
+            {
+               "label":"Python",
+               "value":"python"
+            },
+            {
+               "label":"JavaScript",
+               "value":"javascript"
+            }
+         ],
+         "key":"skills"
+      },
+      {
+         "type":"textfield",
+         "key":"processInstanceId",
+         "label":"Process Instance ID",
+         "defaultValue":"{{ execution.processInstanceId }}",
+         "readonly":true
+      },
+      {
+         "type":"textfield",
+         "key":"taskId",
+         "label":"Task ID",
+         "defaultValue":"{{ task.id }}",
+         "readonly":true
+      }
+   ]
+}
