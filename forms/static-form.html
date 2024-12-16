@@ -34,6 +34,10 @@
             // Handle form data here (send it to a backend or log it)
             console.log({ loanAmount, loanDuration });
         });
+
+        var camForms = camForm || window.parent.camForm || window.top.camForm;
+        console.log(camForms);
+        alert(camForms);
     </script>
 </body>
 </html>
