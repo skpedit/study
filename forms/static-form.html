@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Loan Application Form</title>
+  <title>Loan Application Form</title>
 </head>
+
 <body>
-    <h1>Loan Application Form</h1>
-    <form id="loanForm">
-        <label for="loanAmount">Loan Amount:</label>
-        <input type="text" id="loanAmount" name="loanAmount" required><br><br>
-        
-        <label for="loanDuration">Loan Duration (in years):</label>
-        <input type="number" id="loanDuration" name="loanDuration" required><br><br>
-        
-        <input type="submit" value="Submit">
-    </form>
-     <script>
+  <h1>Loan Application Form</h1>
+  <form id="loanForm">
+    <label for="loanAmount">Loan Amount:</label>
+    <input type="text" id="loanAmount" name="loanAmount" required><br><br>
+
+    <label for="loanDuration">Loan Duration (in years):</label>
+    <input type="number" id="loanDuration" name="loanDuration" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/camunda-form-js@latest/dist/camunda-form.js"></script>
+  <script>
     // Load process instance ID and task ID dynamically
     window.addEventListener('message', function (event) {
       const { task } = event.data;
@@ -25,19 +28,29 @@
       }
     });
   </script>
-    <script>
-        document.getElementById("loanForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            var loanAmount = document.getElementById("loanAmount").value;
-            var loanDuration = document.getElementById("loanDuration").value;
-            
-            // Handle form data here (send it to a backend or log it)
-            console.log({ loanAmount, loanDuration });
-        });
+  <script>
+    document.getElementById("loanForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var loanAmount = document.getElementById("loanAmount").value;
+      var loanDuration = document.getElementById("loanDuration").value;
 
-        var camForms = camForm || window.parent.camForm || window.top.camForm;
-        console.log(camForms);
-        alert(camForms);
-    </script>
+      // Handle form data here (send it to a backend or log it)
+      console.log({ loanAmount, loanDuration });
+    });
+
+    var camForms = camForm || window.parent.camForm || window.top.camForm;
+    console.log(camForms);
+
+    window.addEventListener('message', (event) => {
+      alert(event);
+      console.log("event.data.variables", event);
+      if (event.data.type === 'load-variables') {
+        console.log('Received variables:', event.data.variables);
+      }
+    });
+
+
+  </script>
 </body>
+
 </html>
