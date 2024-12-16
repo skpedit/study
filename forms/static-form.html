@@ -16,7 +16,6 @@
 
     <input type="submit" value="Submit">
   </form>
-  <script src="https://cdn.jsdelivr.net/npm/camunda-form-js@latest/dist/camunda-form.js"></script>
   <script>
     // Load process instance ID and task ID dynamically
     window.addEventListener('message', function (event) {
@@ -67,23 +66,7 @@
     // var camForms = camForm || window.parent.camForm || window.top.camForm;
     // console.log(camForms);
 
-    // option -2 
-    window.addEventListener('message', (event) => {
-      alert(event);
-      console.log("event.data.variables", event);
-      if (event.data.type === 'load-variables') {
-        console.log('Received variables:', event.data.variables);
-      }
-    });
-
-
-
-
-
-
-
-
-  </script>
+</script>
 </body>
 
 </html>
