@@ -40,7 +40,8 @@
       // Handle form data here (send it to a backend or log it)
       console.log({ loanAmount, loanDuration });
 
-
+      alert('1');
+      // option -3 
       fetch('https://lhr-1.tasklist.camunda.io/ef423fb3-957e-4740-9b0b-a55dae920601/engine-rest/task/2251799813685878/variables', {
         method: 'GET',
         headers: {
@@ -48,6 +49,7 @@
         },
       })
         .then((response) => {
+          alert('2');
           if (!response.ok) {
             throw new Error('Failed to fetch task variables: ' + response.statusText);
           }
@@ -62,8 +64,8 @@
     });
 
     // option -1
-    var camForms = camForm || window.parent.camForm || window.top.camForm;
-    console.log(camForms);
+    // var camForms = camForm || window.parent.camForm || window.top.camForm;
+    // console.log(camForms);
 
     // option -2 
     window.addEventListener('message', (event) => {
@@ -74,7 +76,6 @@
       }
     });
 
-    // option -3 
 
 
 
