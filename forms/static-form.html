@@ -17,9 +17,13 @@
     <input type="submit" value="Submit">
   </form>
   <script>
-        const topUrl = window.top.location.href;
-    console.log('Top URL:', topUrl);
-    alert(topUrl);
+    window.onload = function () {
+      alert(1);
+      const topUrl = window.top.location.href;
+      console.log('Top URL:', topUrl);
+      alert(topUrl);
+    };
+
     // Load process instance ID and task ID dynamically
     window.addEventListener('message', function (event) {
       const { task } = event.data;
@@ -31,7 +35,7 @@
     });
 
 
-    
+
   </script>
   <script>
 
