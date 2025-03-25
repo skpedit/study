@@ -1,0 +1,86 @@
+Common Query Parameters:
+assignee: Filters tasks based on the assigned user.
+
+completed: Filters tasks based on completion status (true or false).
+
+active: Filters tasks that are still active (default is true).
+
+unassigned: Filters tasks that are not assigned to anyone.
+
+taskDefinitionKey: Filters tasks by the task definition key.
+
+candidateGroup: Filters tasks that are available for a specific group (used for candidate tasks).
+
+dueBefore and dueAfter: Filters tasks based on the due date.
+
+======================
+
+GET /engine-rest/task?assignee=null&completed=false
+
+======================
+Hierarchy for Searching User Tasks
+
+Let's assume the following filters for the search:
+
+Tenant: --------------
+
+Process Name: -----------------
+
+Process Definition Key: To filter tasks by a specific process model (i.e., the process definition that the task belongs to).
+
+Process Status: -----------
+
+Process created date range: ---------
+
+Process completed date range: -------------
+
+Process not completed: no end date
+
+Task Name(taskDefinitionKey): 
+
+candidateGroup: 
+
+Assignee (User): To filter tasks by the user assigned to the task.
+
+Task Status: To filter tasks based on whether they are completed or not.
+
+Task Priority: If you're filtering based on the priority of tasks (if you're using task priority).
+
+Due Date: To filter tasks based on their due date (e.g., tasks due before or after a certain date)
+
+
+GET /engine-rest/task?processDefinitionKey=orderProcess&assigneeIn=jdoe,asmith&completed=false&dueBefore=2025-03-31T23:59:59
+GET /engine-rest/task?processDefinitionKey=orderProcess&assignee=jdoe&completed=false&priority=high&dueBefore=2025-03-31T23:59:59
+assigneeIn=jdoe,asmith&
+dueAfter=2025-03-01T00:00:00
+&assignee=null
+
+Get the variables for each process, from a keyword/model structures
+Suugestedtion: Get the empty model in a variable called keywords:
+
+========================
+
+eq	Equals
+neq	Not equals
+like	Contains (for strings)
+gt	Greater than
+lt	Less than
+gteq	Greater than or equal
+lteq	Less than or equal
+
+
+POST /task
+{
+  "taskVariables": [
+    {
+      "name": "priority",
+      "operator": "eq",
+      "value": "high"
+    }
+  ],
+  "assignee": "sraban",
+  "processDefinitionKey": "orderProcess"
+}
+
+
+===========
